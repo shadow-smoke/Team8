@@ -12,6 +12,7 @@ public class Ghost {
   }
 
   public ArrayList<Location> get_valid_moves() {
+    // test
     return null;
   }
 
