@@ -29,7 +29,7 @@ public class PacMan {
     for (Location location : allLocs) {
       // if any of surrounding points are a wall remove from ArrayList we are
       // returning
-      if (myMap.getLoc(location).contains(Map.Type.WALL)) {
+      if (myMap.getLoc(location) != null && myMap.getLoc(location).contains(Map.Type.WALL)) {
         // System.out.println(allLocs.toString());
         allLocs.remove(location);
       }
