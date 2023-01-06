@@ -39,7 +39,8 @@ public class Map {
   public void add(String name, Location loc, JComponent comp, Type type) {
     locations.put(name, loc);
     components.put(name, comp);
-    if (!field.containsKey(loc)) field.put(loc, new HashSet<Type>());
+    if (!field.containsKey(loc))
+      field.put(loc, new HashSet<Type>());
     field.get(loc).add(type);
   }
 
@@ -52,6 +53,20 @@ public class Map {
   }
 
   public boolean move(String name, Location loc, Type type) {
+    Location objectLocation = locations.get(name);
+    JComponent objectComponent = components.get(name);
+
+    locations.remove(name);
+    components.remove(name);
+
+    // locations.put(name, objectLocation);
+    locations.put(name, loc);
+    components.put(name, objectComponent);
+
+    if (field.get(loc).add(type) == true) {
+      return true;
+    }
+
     // update locations, components, and field
     // use the setLocation method for the component to move it to the new location
     return false;
