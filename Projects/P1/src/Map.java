@@ -63,7 +63,13 @@ public class Map {
   }
 
   public boolean attack(String Name) {
-    // update gameOver
+    Location ghost_loc = locations.get(Name);
+    // if ghost Name and Pacman are in the same location an attack happens
+    if (field.get(ghost_loc).contains(Type.PACMAN)){
+      // update gameOver
+      gameOver = true;
+    }
+
     return false;
   }
 
