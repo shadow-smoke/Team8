@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Ghost {
   String myName;
@@ -16,6 +17,16 @@ public class Ghost {
   }
 
   public boolean move() {
+    ArrayList<Location> locations = get_valid_moves();
+    int numMoves = locations.size();
+    Random rn = new Random();
+
+    if (numMoves > 0){
+      int rd_loc_index = rn.nextInt(numMoves) + 1;
+      myLoc = locations.get(rd_loc_index);
+      return true;
+    }
+
     return false;
   }
 
