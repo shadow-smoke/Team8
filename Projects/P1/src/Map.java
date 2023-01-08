@@ -65,19 +65,7 @@ public class Map {
     locations.put(name, loc);
 
     objectComponent.setLocation(loc.x, loc.y);
-    // locations.remove(name);
-    // components.remove(name);
 
-    // locations.put(name, objectLocation);
-    // locations.put(name, loc);
-    // components.put(name, objectComponent);
-
-    // if (field.get(loc).add(type) == true) {
-    // return true;
-    // }
-
-    // update locations, components, and field
-    // use the setLocation method for the component to move it to the new location
     return true;
   }
 
