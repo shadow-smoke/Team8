@@ -62,15 +62,14 @@ public class Map {
     return null;
   }
 
-  public boolean attack(String Name) {
-    Location ghost_loc = locations.get(Name);
-    // if ghost Name and Pacman are in the same location an attack happens
-    if (field.get(ghost_loc).contains(Type.PACMAN)){
-      // update gameOver
-      gameOver = true;
-    }
 
-    return false;
+ /**
+  * // When a ghost attacks, ghost.attack() calls Map.attack()
+  */
+ public boolean attack(String Name) {
+    // if pacman is attacked, the game is over
+    gameOver = true;
+    return gameOver;
   }
 
   public JComponent eatCookie(String name) {
