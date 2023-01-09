@@ -1,4 +1,5 @@
 import java.io.*;
+import java.awt.*;
 import junit.framework.*;
 import java.util.*;
 
@@ -40,5 +41,18 @@ public class TestPacManValidMoves extends TestCase {
     // }
 
     assertEquals(testValidMoves, correctAnswers);
+
+    // Creating A Map
+    // Mainframe frame = new MainFrame(); // Creates A New Map With Walls and Tokens
+    // Initialized
+    NoFrame frame = new NoFrame(); // Creates A New Map With Walls and Tokens w/o
+    // a Display
+
+    // Creating Players
+    Ghost ghost2 = frame.addGhost(new Location(5, 5), "name", Color.red); // Creates a red ghost named "name" at
+                                                                          // location // x,y
+    PacMan pacman2 = frame.addPacMan(new Location(6, 6)); // Creates PacMan at location x, y
+    System.out.println(pacman2.get_valid_moves());
   }
+
 }

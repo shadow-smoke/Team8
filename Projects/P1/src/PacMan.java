@@ -31,7 +31,7 @@ public class PacMan {
     }
 
     for (Location location : allLocs) {
-      if (myMap.getLoc(location).contains(Map.Type.EMPTY)) {
+      if (myMap.getLoc(location) != null && myMap.getLoc(location).contains(Map.Type.EMPTY)) {
         output.add(location);
       }
 
