@@ -6,6 +6,7 @@ import junit.framework.*;
 public class TestGhostMove extends TestCase {
 
   public void testGhostMove() throws FileNotFoundException {
+    // dummy data for get_valid_moves
     Location oldLocation = new Location(5, 10);
     Map mp = new Map(20);
     Ghost blinky = new Ghost("blinky", oldLocation, mp);
@@ -22,9 +23,9 @@ public class TestGhostMove extends TestCase {
 
     // reimplement moves in Test to verify algorithm
     Random rn = new Random();
-
     int rd_loc_index = rn.nextInt(numMoves);
     blinky.myLoc = possibleMoves.get(rd_loc_index);
+    // updating location in map
     blinky.myMap.move(blinky.myName, blinky.myLoc, Map.Type.GHOST);
 
     assertTrue(possibleMoves.contains(blinky.myLoc));
