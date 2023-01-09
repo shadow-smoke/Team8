@@ -28,7 +28,7 @@ public class TestPacManMove extends TestCase {
     // reimplement moves in Test to verify algorithm
     Random rn = new Random();
 
-    int rd_loc_index = rn.nextInt(numMoves) + 1;
+    int rd_loc_index = rn.nextInt(numMoves);
     pacman.myLoc = possibleMoves.get(rd_loc_index);
     pacman.myMap.move(pacman.myName, pacman.myLoc, Map.Type.PACMAN);
 

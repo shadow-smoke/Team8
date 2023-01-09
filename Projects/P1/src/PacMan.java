@@ -24,7 +24,7 @@ public class PacMan {
     Random rn = new Random();
 
     if (numMoves > 0){
-      int rd_loc_index = rn.nextInt(numMoves) + 1;
+      int rd_loc_index = rn.nextInt(numMoves);
       myLoc = locations.get(rd_loc_index);
       myMap.move(myName, myLoc, Map.Type.PACMAN);
       return true;
