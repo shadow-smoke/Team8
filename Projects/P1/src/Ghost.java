@@ -21,9 +21,10 @@ public class Ghost {
     int numMoves = locations.size();
     Random rn = new Random();
 
-    if (numMoves > 0){
+    if (numMoves > 0) {
       int rd_loc_index = rn.nextInt(numMoves) + 1;
       myLoc = locations.get(rd_loc_index);
+      myMap.move(myName, myLoc, Map.Type.GHOST);
       return true;
     }
 
