@@ -2,6 +2,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
 
+import com.sun.jdi.Location;
+
 public class Map {
 
   public enum Type {
@@ -69,9 +71,20 @@ public class Map {
     return true;
   }
 
+  /*
+   * For the given location argument, returns what is currently at the location
+   * (Empty, Pacman, Cookie, Ghost, Wall).
+   */
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-    return null;
+    if(field.get(loc).size()>0){
+      return field.get(loc);
+    }else if (field.get(loc).size()<=0){
+      return emptySet;
+    }else if((loc.x > dim || loc.y > dim ||loc.y < 0 || loc.x < 0 )){
+      return wallSet;
+    }
+    return emptySet;
   }
 
 
