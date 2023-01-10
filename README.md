@@ -1,10 +1,10 @@
 # cmsc389T-winter23
 
-# **PACMAN PROJECT 1
+# PACMAN PROJECT 1
 
 ### Team 8** 
 
-_* Nathan Perry
+* Nathan Perry
 * Fernando Gonzales-Vigil
 * Francesca Bruce
 * Sukhman Kaur_
