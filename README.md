@@ -2,7 +2,7 @@
 
 # PACMAN PROJECT 1
 
-### Team 8** 
+### Team 8
 
 * Nathan Perry
 * Fernando Gonzales-Vigil
