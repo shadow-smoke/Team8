@@ -74,9 +74,14 @@ public class Map {
     return null;
   }
 
-  public boolean attack(String Name) {
-    // update gameOver
-    return false;
+
+ /**
+  * // When a ghost attacks, ghost.attack() calls Map.attack()
+  */
+ public boolean attack(String Name) {
+    // if pacman is attacked, the game is over
+    gameOver = true;
+    return gameOver;
   }
 
   public JComponent eatCookie(String name) {
