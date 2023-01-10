@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JComponent;
 
 import Map.Type;
@@ -49,6 +50,17 @@ public class PacMan {
   }
 
   public boolean move() {
+    ArrayList<Location> locations = get_valid_moves();
+    int numMoves = locations.size();
+    Random rn = new Random();
+
+    if (numMoves > 0){
+      int rd_loc_index = rn.nextInt(numMoves);
+      myLoc = locations.get(rd_loc_index);
+      myMap.move(myName, myLoc, Map.Type.PACMAN);
+      return true;
+    }
+
     return false;
   }
 
