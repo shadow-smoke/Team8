@@ -36,6 +36,8 @@ Else, I returned null.
 is_ghost_in_range()
 This method checks and returns true if Pacman’s surroundings has any Ghost within its range to attack. The range is identified as if the Ghost is up, down, left or right of Pacman.
 
+get_valid_moves()
+This function creates an array list of all possible points that a Pacman could go. It then iterates through this list and removes ones that are not null and that the Map.Type is a Wall.
 
 ### **Ghost.java**
 
@@ -49,6 +51,8 @@ This function controls the ghost attacking the pacman. If the pacman was in rang
 is_pacman_in_range()
 This method checks and returns true if a Ghost’s surroundings has Pacman within its range to attack. The range is identified as if the ghost is up, down, left or right of the Ghost.
 
+get_valid_moves()
+This function creates an array list of all possible points that a Ghost could go. It than iterates through this list and removes ones that are not null and that the Map.Type is a Wall.
 
 ### **Map.Java**
 
@@ -57,6 +61,9 @@ This method assumes that its going to be called by Ghost.attack() so if it's cal
 
 getLoc()
 This method return what the is in the current location. It can return Empty, Pacman, Cookie, Ghost, Wall.
+
+move()
+This function gets the location and component based off of the name of the item and then removes it from the field. It then checks to see if the field contains a key with the location passed as a parameter, if it does not contain a key it creates a new HashSet of Type type that is passed in. It then adds the type to the location in the field and puts the name, location pair into the class wide location object. I then set the location of the component to the location x and y values and then return true.
 
 
 ### **Tests**
@@ -82,5 +89,13 @@ TestMapGetLoc()
 This test checks if the correct  item is being returned given a specified location. 
 
 
+TestPacManValidMoves()
+I create a new map and Pacman. I then store the return value of pacman.get_valid_moves() as an arraylist and then create an array list of all the possible directions the ghost would be able to go. I assert true if these lists match.
+
+TestGhostValidMoves()
+I create a new map and ghost. I then store the return value of ghost.get_valid_moves() as an array list and then create an array list of all the possible directions the ghost would be able to go. I assert true if these lists match.
+
+TestMapMove()
+I create a new map and locations. I add a new Pacman object to the map and then assert true that map.move works on the Pacman object.
 
 
