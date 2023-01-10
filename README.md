@@ -7,7 +7,7 @@
 * Nathan Perry
 * Fernando Gonzales-Vigil
 * Francesca Bruce
-* Sukhman Kaur_
+* Sukhman Kaur
 
 Image: 
 
@@ -80,7 +80,14 @@ This test creates a dummy list of valid locations for ghost and test that it wil
 TestGhostInRange()
 This test checks the is_ghost_in_range method as it checks for a valid range where the Ghost is in the left, right , up or down of Pacman. There is also another test when there is no Ghost within range of Pacman.
 
+TestAttack()
+This test checks to see if pacman is in range and attacks and then returns true or false based on if the pacman is in range. The first test checks for returning true since pacman location is only one away from ghost and false for the second test since it's location is further. 
+
 TestConsume()
+
+
+TestMapEatCookie()
+
 
 TestMapAttack()
 This test verifies that the state of gameOver is change before and after it is called.
