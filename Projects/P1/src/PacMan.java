@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Random;
 import javax.swing.JComponent;
 
 public class PacMan {
@@ -15,6 +14,9 @@ public class PacMan {
   }
 
   public ArrayList<Location> get_valid_moves() {
+
+    return null;
+
     int x = myLoc.x;
     int y = myLoc.y;
 
@@ -46,43 +48,18 @@ public class PacMan {
 
     return allLocs;
     // return output;
+
   }
 
   public boolean move() {
-    ArrayList<Location> locations = get_valid_moves();
-    int numMoves = locations.size();
-    Random rn = new Random();
-
-    if (numMoves > 0){
-      int rd_loc_index = rn.nextInt(numMoves);
-      myLoc = locations.get(rd_loc_index);
-      myMap.move(myName, myLoc, Map.Type.PACMAN);
-      return true;
-    }
-
     return false;
   }
 
   public boolean is_ghost_in_range() {
-    if(myMap.getLoc(new Location(myLoc.x+1,myLoc.y)).contains(Map.Type.GHOST)){
-      return true;
-    }
-    if(myMap.getLoc(new Location(myLoc.x,myLoc.y+1)).contains(Map.Type.GHOST)){
-      return true;
-    }
-    if(myMap.getLoc(new Location(myLoc.x-1,myLoc.y)).contains(Map.Type.GHOST)){
-      return true;
-    }
-    if(myMap.getLoc(new Location(myLoc.x,myLoc.y-1)).contains(Map.Type.GHOST)){
-      return true;
-    }
-
-
     return false;
   }
 
   public JComponent consume() {
-
     if(myMap.getLoc(myLoc).contains(Map.Type.COOKIE)){
       String id = "tok_x" + myLoc.x + "_y" + myLoc.y;
       return myMap.eatCookie(id);
@@ -91,8 +68,3 @@ public class PacMan {
     }
    }
 }
-
-    return null;
-  }
-}
-
