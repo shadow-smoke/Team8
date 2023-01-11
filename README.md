@@ -11,7 +11,7 @@
 
 Image: 
 
-![PacMan Screenshot](https://github.com/cmsc389T-winter23/Team8/blob/main/Projects/P1/src/assets/screenshot.png)
+![PacMan Screenshot](https://github.com/cmsc389T-winter23/Team8/blob/main/Projects/P1/src/assets/new_screenshot.png)
 
 How To Run Code From Command Line:
 
