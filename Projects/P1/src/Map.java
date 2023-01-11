@@ -55,9 +55,13 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     Location objectLocation = locations.get(name);
     JComponent objectComponent = components.get(name);
-    field.get(objectLocation).remove(type);
+    if (field.get(objectLocation)!= null){
+      field.get(objectLocation).remove(type);
+    } else {
+      return false;
+    }
 
-    if (field.containsKey(loc) == false) {
+    if (!field.containsKey(loc)) {
       field.put(loc, new HashSet<Type>());
     }
 
