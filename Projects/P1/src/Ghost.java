@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Ghost {
+
   String myName;
   Location myLoc;
   Map myMap;
@@ -74,12 +75,15 @@ public class Ghost {
       return true;
     }
 
-  public boolean attack() {
-    if ( is_pacman_in_range() == true){
-      myMap.attack(myName);
-      return true;
-    }else{
     return false;
-    } 
   }
-}
+
+    public boolean attack () {
+      if (is_pacman_in_range() == true) {
+        myMap.attack(myName);
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
