@@ -28,22 +28,24 @@ public class Ghost {
     }
 
     for (Location location : allLocs) {
-      // if (myMap.getLoc(location) != null &&
-      // myMap.getLoc(location).contains(Map.Type.EMPTY)) {
-      // output.add(location);
-      // }
+      if (myMap.getLoc(location) != null &&
+          myMap.getLoc(location).contains(Map.Type.EMPTY)) {
+        output.add(location);
+
+      }
       // if any of surrounding points are a wall remove from ArrayList we are
       // returning
-      if (myMap.getLoc(location) != null &&
-          myMap.getLoc(location).contains(Map.Type.WALL)) {
-        // System.out.println(allLocs.toString());
-        allLocs.remove(location);
-      }
+      // if (myMap.getLoc(location) != null &&
+      // myMap.getLoc(location).contains(Map.Type.WALL)) {
+      // // System.out.println(allLocs.toString());
+      // // output.add(location);
+      // allLocs.remove(location);
+      // }
     }
 
     // return output;
     return allLocs;
-
+    //
   }
 
   public boolean move() {

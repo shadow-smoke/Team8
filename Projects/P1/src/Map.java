@@ -55,7 +55,7 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     Location objectLocation = locations.get(name);
     JComponent objectComponent = components.get(name);
-    if (field.get(objectLocation)!= null){
+    if (field.get(objectLocation) != null) {
       field.get(objectLocation).remove(type);
     } else {
       return false;
@@ -79,21 +79,20 @@ public class Map {
    */
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-    if(field.get(loc) != null && field.get(loc).size() > 0){
+    if (field.get(loc) != null && field.get(loc).size() > 0) {
       return field.get(loc);
-    }else if (field.get(loc) == null){
+    } else if (field.get(loc) == null) {
       return emptySet;
-    }else if((loc.x > dim || loc.y > dim ||loc.y < 0 || loc.x < 0 )){
+    } else if ((loc.x > dim || loc.y > dim || loc.y < 0 || loc.x < 0)) {
       return wallSet;
     }
     return emptySet;
   }
 
-
- /**
-  * // When a ghost attacks, ghost.attack() calls Map.attack()
-  */
- public boolean attack(String Name) {
+  /**
+   * // When a ghost attacks, ghost.attack() calls Map.attack()
+   */
+  public boolean attack(String Name) {
     // if pacman is attacked, the game is over
     gameOver = true;
     return gameOver;
@@ -102,9 +101,9 @@ public class Map {
   public JComponent eatCookie(String name) {
     // update locations, components, field, and cookies
     // the id for a cookie at (10, 1) is tok_x10_y1
-    
+
     Location cookieLoc = locations.get(name);
-    if (getLoc(cookieLoc).contains(Map.Type.COOKIE)){
+    if (getLoc(cookieLoc).contains(Map.Type.COOKIE)) {
       cookies++;
       JComponent cookieEaten = components.get(name);
       String id = "tok_x" + cookieLoc.x + "_y" + cookieLoc.y;
@@ -115,6 +114,5 @@ public class Map {
     }
     return null;
 
-    
   }
 }
