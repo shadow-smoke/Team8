@@ -35,9 +35,9 @@ public class Ghost {
       // if any of surrounding points are a wall remove from ArrayList we are
       // returning
       if (myMap.getLoc(location) != null &&
-          myMap.getLoc(location).contains(Map.Type.WALL)) {
+          myMap.getLoc(location).contains(Map.Type.EMPTY)) {
         // System.out.println(allLocs.toString());
-        allLocs.remove(location);
+        output.add(location);
       }
     }
 

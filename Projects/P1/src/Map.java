@@ -75,9 +75,9 @@ public class Map {
    */
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-    if(field.get(loc).size()>0){
+    if(field.get(loc) != null && field.get(loc).size() > 0){
       return field.get(loc);
-    }else if (field.get(loc).size()<=0){
+    }else if (field.get(loc) == null){
       return emptySet;
     }else if((loc.x > dim || loc.y > dim ||loc.y < 0 || loc.x < 0 )){
       return wallSet;
