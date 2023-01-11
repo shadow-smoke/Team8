@@ -35,9 +35,9 @@ public class Ghost {
       // if any of surrounding points are a wall remove from ArrayList we are
       // returning
       if (myMap.getLoc(location) != null &&
-          myMap.getLoc(location).contains(Map.Type.EMPTY)) {
+          myMap.getLoc(location).contains(Map.Type.WALL)) {
         // System.out.println(allLocs.toString());
-        output.add(location);
+        allLocs.remove(location);
       }
     }
 
@@ -62,28 +62,28 @@ public class Ghost {
   }
 
   public boolean is_pacman_in_range() {
-    if(myMap.getLoc(new Location(myLoc.x+1,myLoc.y)).contains(Map.Type.PACMAN)){
+    if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.PACMAN)) {
       return true;
     }
-    if(myMap.getLoc(new Location(myLoc.x,myLoc.y+1)).contains(Map.Type.PACMAN)){
+    if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.PACMAN)) {
       return true;
     }
-    if(myMap.getLoc(new Location(myLoc.x-1,myLoc.y)).contains(Map.Type.PACMAN)){
+    if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.PACMAN)) {
       return true;
     }
-    if(myMap.getLoc(new Location(myLoc.x,myLoc.y-1)).contains(Map.Type.PACMAN)){
+    if (myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.PACMAN)) {
       return true;
     }
 
     return false;
   }
 
-    public boolean attack () {
-      if (is_pacman_in_range() == true) {
-        myMap.attack(myName);
-        return true;
-      } else {
-        return false;
-      }
+  public boolean attack() {
+    if (is_pacman_in_range() == true) {
+      myMap.attack(myName);
+      return true;
+    } else {
+      return false;
     }
   }
+}
