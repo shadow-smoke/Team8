@@ -49,7 +49,7 @@ attack()
 This function controls the ghost attacking the pacman. If the pacman was in range, the ghost attacks the pacman and returns true. If not, it returns false. In order to implement this, I used the is_packman_in_range function to check if it was in range and if it was, I returned true and attacked the packman by calling that function from Map.java. Otherwise, I returned false.
 
 is_pacman_in_range()
-This method checks and returns true if a Ghost’s surroundings has Pacman within its range to attack. The range is identified as if the ghost is up, down, left or right of the Ghost.
+This method checks and returns true if a Ghost’s surroundings has Pacman within its range to attack. The range is identified as if Pacman is up, down, left or right of the Ghost.
 
 get_valid_moves()
 This function creates an array list of all possible points that a Ghost could go. It than iterates through this list and removes ones that are not null and that the Map.Type is a Wall.
