@@ -14,7 +14,7 @@ public class TestMapEatCookie extends TestCase {
     String id = "tok_x9_y11";
 
     area.add(id, cookieLoc, cookie, Map.Type.COOKIE);
-    add(cookie);
+ 
     cookie.setLocation(9, 11);
     
     assertTrue(area.eatCookie(id) != null);
