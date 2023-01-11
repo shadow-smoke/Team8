@@ -65,6 +65,9 @@ This method return what the is in the current location. It can return Empty, Pac
 move()
 This function gets the location and component based off of the name of the item and then removes it from the field. It then checks to see if the field contains a key with the location passed as a parameter, if it does not contain a key it creates a new HashSet of Type type that is passed in. It then adds the type to the location in the field and puts the name, location pair into the class wide location object. I then set the location of the component to the location x and y values and then return true.
 
+eatCookie()
+This method is made so the pacman actually consumed the cookie if the location of itself and the cookie are the same. I wrote it so I remove the cookie from the hashmaps: components and field by using the name passed into the parameter. I also updated the locations hashmap to show the location as NULL. After, I incremented the number of cookies eaten and returned the cookie component. If it was not in the map, I returned NULL. 
+
 
 ### **Tests**
 
@@ -84,10 +87,11 @@ TestAttack()
 This test checks to see if pacman is in range and attacks and then returns true or false based on if the pacman is in range. The first test checks for returning true since pacman location is only one away from ghost and false for the second test since it's location is further. 
 
 TestConsume()
+I tested the method by creating a map, pacman, and cookie component. I set the locations for both the pacman and cookie component to the same thing and called consume and checked if it returned null or not. I did a second test to have the locations of cookie and pacman to be different and checked if the function returned null.
 
 
 TestMapEatCookie()
-
+This test was written to check if the cookie was actually eaten, i.e removed from components and field. If it was, then the return was not NULL. Once it is removed the function should return NULL so I added a second check to make sure it returned NULL. 
 
 TestMapAttack()
 This test verifies that the state of gameOver is change before and after it is called.
