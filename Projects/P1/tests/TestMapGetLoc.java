@@ -14,13 +14,13 @@ public class TestMapGetLoc extends TestCase {
     Map map = frame.getMap();
 
 
-    assertTrue(map.getLoc(pLocation).contains(contains(Map.Type.PACMAN)));
-    assertTrue(map.getLoc(gLocation).contains(contains(Map.Type.GHOST)));
+    assertTrue(map.getLoc(pLocation).contains((Map.Type.PACMAN)));
+    assertTrue(map.getLoc(gLocation).contains((Map.Type.GHOST)));
 
 
-    assertTrue(map.getLoc(new Location(1,2)).contains(contains(Map.Type.EMPTY)));
-    assertTrue(map.getLoc(new Location(12,4)).contains(contains(Map.Type.EMPTY)));
+    assertTrue(map.getLoc(new Location(1,2)).contains((Map.Type.EMPTY)));
+    assertTrue(map.getLoc(new Location(12,4)).contains((Map.Type.EMPTY)));
 
-    assertTrue(map.getLoc(new Location(0,0)).contains(contains(Map.Type.WALL)));
+    assertTrue(map.getLoc(new Location(0,0)).contains((Map.Type.WALL)));
   }
 }
