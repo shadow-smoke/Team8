@@ -40,7 +40,7 @@ public class TestPacManValidMoves extends TestCase {
     // System.out.println(element.x + ", " + element.y);
     // }
 
-    System.out.println(testValidMoves);
+    // System.out.println(testValidMoves);
     assertEquals(testValidMoves, correctAnswers);
 
     // Creating A Map
@@ -56,6 +56,27 @@ public class TestPacManValidMoves extends TestCase {
     // PacMan pacman2 = frame.addPacMan(new Location(6, 6)); // Creates PacMan at
     // location x, y
     // System.out.println(pacman2.get_valid_moves());
+
+    NoFrame frame = new NoFrame();
+    Location location3 = new Location(1, 1);
+    // Location location4 = new Location(2, 3);
+
+    // PacMan pacman = frame.addPacMan(pLocation);
+    PacMan pacMan2 = frame.addPacMan(location3);
+    // assertTrue(pacman.is_ghost_in_range() == false);
+    ArrayList<Location> pacmanLocations = pacMan2.get_valid_moves();
+    // System.out.println(ghost2Moves);
+
+    // for (Location element : pacmanLocations) {
+    // System.out.println(element.x + ", " + element.y);
+    // }
+
+    ArrayList<Location> correctAnswers2 = new ArrayList<Location>();
+    correctAnswers2.add(new Location(1, 1));
+    correctAnswers2.add(new Location(1, 2));
+    correctAnswers2.add(new Location(2, 1));
+
+    assertEquals(correctAnswers2, pacmanLocations);
   }
 
 }
