@@ -17,8 +17,6 @@ public class TestConsume extends TestCase {
     CookieComponent cookie = new CookieComponent(9, 12, 20);
 
     area.add("tok_x" + row + "_y" + col, cookieLoc, cookie, Map.Type.COOKIE);
-          add(cookie);
-          cookie.setLocation(row, col);
 
     
     assertTrue(pacman.consume() != null);
@@ -36,9 +34,7 @@ public class TestConsume extends TestCase {
     CookieComponent cookie = new CookieComponent(9, 11, 20);
 
     area.add("tok_x" + row + "_y" + col, cookieLoc, cookie, Map.Type.COOKIE);
-          add(cookie);
-          cookie.setLocation(row, col);
-
+          
     
     assertTrue(pacman.consume() == null);
 
