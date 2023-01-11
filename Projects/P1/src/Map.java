@@ -2,6 +2,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import javax.swing.JComponent;
 
+import com.sun.jdi.Location;
+
 public class Map {
 
   public enum Type {
@@ -39,7 +41,8 @@ public class Map {
   public void add(String name, Location loc, JComponent comp, Type type) {
     locations.put(name, loc);
     components.put(name, comp);
-    if (!field.containsKey(loc)) field.put(loc, new HashSet<Type>());
+    if (!field.containsKey(loc))
+      field.put(loc, new HashSet<Type>());
     field.get(loc).add(type);
   }
 
@@ -52,24 +55,64 @@ public class Map {
   }
 
   public boolean move(String name, Location loc, Type type) {
-    // update locations, components, and field
-    // use the setLocation method for the component to move it to the new location
-    return false;
+    Location objectLocation = locations.get(name);
+    JComponent objectComponent = components.get(name);
+    field.get(objectLocation).remove(type);
+
+    if (field.containsKey(loc) == false) {
+      field.put(loc, new HashSet<Type>());
+    }
+
+    field.get(loc).add(type);
+    locations.put(name, loc);
+
+    objectComponent.setLocation(loc.x, loc.y);
+
+    return true;
   }
 
+  /*
+   * For the given location argument, returns what is currently at the location
+   * (Empty, Pacman, Cookie, Ghost, Wall).
+   */
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-    return null;
+    if(field.get(loc).size()>0){
+      return field.get(loc);
+    }else if (field.get(loc).size()<=0){
+      return emptySet;
+    }else if((loc.x > dim || loc.y > dim ||loc.y < 0 || loc.x < 0 )){
+      return wallSet;
+    }
+    return emptySet;
   }
 
-  public boolean attack(String Name) {
-    // update gameOver
-    return false;
+
+ /**
+  * // When a ghost attacks, ghost.attack() calls Map.attack()
+  */
+ public boolean attack(String Name) {
+    // if pacman is attacked, the game is over
+    gameOver = true;
+    return gameOver;
   }
 
   public JComponent eatCookie(String name) {
     // update locations, components, field, and cookies
     // the id for a cookie at (10, 1) is tok_x10_y1
+    
+    Location cookieLoc = locations.get(name);
+    if (getLoc(cookieLoc).contains(Map.Type.COOKIE)){
+      cookies++;
+      JComponent cookieEaten = components.get(name);
+      String id = "tok_x" + cookieLoc.x + "_y" + cookieLoc.y;
+      components.remove(id);
+      locations.replace(id, null);
+      field.remove(cookieLoc);
+      return cookieEaten;
+    }
     return null;
+
+    
   }
 }
