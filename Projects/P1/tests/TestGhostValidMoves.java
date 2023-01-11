@@ -1,6 +1,7 @@
 import java.io.*;
 import junit.framework.*;
 import java.util.*;
+import java.awt.Color;
 
 public class TestGhostValidMoves extends TestCase {
 
@@ -40,5 +41,26 @@ public class TestGhostValidMoves extends TestCase {
     // }
 
     assertEquals(testValidMoves, correctAnswers);
+
+    NoFrame frame = new NoFrame();
+    Location location3 = new Location(1, 1);
+    // Location location4 = new Location(2, 3);
+
+    // PacMan pacman = frame.addPacMan(pLocation);
+    Ghost ghost2 = frame.addGhost(location3, "inky", Color.red);
+    // assertTrue(pacman.is_ghost_in_range() == false);
+    ArrayList<Location> ghost2Moves = ghost2.get_valid_moves();
+    // System.out.println(ghost2Moves);
+
+    // for (Location element : ghost2Moves) {
+    // System.out.println(element.x + ", " + element.y);
+    // }
+
+    ArrayList<Location> correctAnswers2 = new ArrayList<Location>();
+    correctAnswers2.add(new Location(1, 1));
+    correctAnswers2.add(new Location(1, 2));
+    correctAnswers2.add(new Location(2, 1));
+
+    assertEquals(correctAnswers2, ghost2Moves);
   }
 }
