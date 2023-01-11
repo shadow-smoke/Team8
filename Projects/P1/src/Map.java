@@ -109,7 +109,7 @@ public class Map {
        String id = "tok_x" + cookieLoc.x + "_y" + cookieLoc.y;
         //components.remove(id);
         locations.remove(id);
-        //field.remove(cookieLoc);
+        field.get(cookieLoc).remove(Map.Type.COOKIE);
        return components.remove(id);
      }
      return null;
