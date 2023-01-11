@@ -11,11 +11,12 @@
 
 Image: 
 
+Loc
+
 How To Run Code From Command Line:
 
-
-Code Block:
-
+`javac -cp "src/" src/*.java`
+`java -cp "src/" StartMenu`
 
 List of functions: 
 
