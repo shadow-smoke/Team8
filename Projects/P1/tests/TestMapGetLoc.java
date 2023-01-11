@@ -15,6 +15,7 @@ public class TestMapGetLoc extends TestCase {
     assertTrue(map.getLoc(new Location(4,5)).contains(Map.Type.GHOST)); 
     assertTrue(map.getLoc(new Location(4,5)).contains(Map.Type.EMPTY) == false); 
     assertTrue(map.getLoc(new Location(20,40)).contains(Map.Type.WALL)); 
+    assertTrue(map.getLoc(new Location(1,1)).contains(Map.Type.COOKIE)); 
 
   }
 }
