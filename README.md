@@ -15,8 +15,8 @@ Image:
 
 How To Run Code From Command Line:
 
-`javac -cp "src/" src/*.java <br/>
- java -cp "src/" StartMenu`
+    `javac -cp "src/" src/*.java
+     java -cp "src/" StartMenu`
 
 List of functions: 
 
