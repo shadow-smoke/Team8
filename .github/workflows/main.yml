@@ -17,7 +17,7 @@ jobs:
     container: openjdk
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Compile Pacman Project and Tests
         working-directory: Projects/P1
 #         run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
@@ -29,9 +29,21 @@ jobs:
     container: openjdk
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Compile Pacman Project and Tests
         working-directory: Projects/P1
 #         run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
         run: javac -cp "tests/junit-4.10.jar:." src/*.java tests/*.java  
 #         run: javac -cp ":tests/junit-4.10.jar" src/*.java tests/*.java  
+
+  compile3:
+      runs-on: ubuntu-latest
+      container: openjdk
+
+      steps:
+        - uses: actions/checkout@v2
+        - name: Compile Pacman Project and Tests
+          working-directory: Projects/P1
+          run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+#           run: javac -cp "tests/junit-4.10.jar:." src/*.java tests/*.java  
+  #         run: javac -cp ":tests/junit-4.10.jar" src/*.java tests/*.java  
