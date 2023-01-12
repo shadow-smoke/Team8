@@ -40,8 +40,8 @@ jobs:
       - name: Test Ghost Valid Moves
         working-directory: Projects/P1
         run: |
-        pwd
-        java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
+          pwd
+          java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
 
   TestMapMove:
     runs-on: ubuntu-latest
