@@ -74,7 +74,7 @@ public class PacMan {
       }
       myMap.move(myName, myLoc, Map.Type.PACMAN);
 
-      if (history.size() >= 10){
+      if (history.size() >= 7){
         history.clear();
       }
       return true;

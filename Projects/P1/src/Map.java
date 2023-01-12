@@ -118,6 +118,9 @@ public class Map {
      return null;
     }
 
+    public Location find(String name){
+      return locations.get(name);
+    }
 
   }
 
