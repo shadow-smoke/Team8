@@ -22,6 +22,14 @@ jobs:
       - name: Print Directory
       
         run: pwd
+        
+      - name: Change Directory Projects/P1
+      
+        run: cd Projects/P1
+
+      - name: Print Directory
+      
+        run: pwd
 
 
       - name: Compile Pacman Project and Tests
