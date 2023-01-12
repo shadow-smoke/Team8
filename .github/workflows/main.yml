@@ -18,23 +18,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-#       - name: Print Directory
-      
-#         run: pwd
-        
-#       - name: Change Directory Projects/P1
-      
-#         run: cd Projects/P1
-
-#       - name: Print Directory
-      
-#         run: pwd
-
-
       - name: Compile Pacman Project and Tests
         working-directory: Projects/P1
 #         run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
 #         run: javac -cp "tests/junit-4.10.jar:." src/*.java tests/*.java  
         run: javac -cp ":tests/junit-4.10.jar" src/*.java tests/*.java  
 
+  compile2:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compile Pacman Project and Tests
+        working-directory: Projects/P1
+#         run: javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+        run: javac -cp "tests/junit-4.10.jar:." src/*.java tests/*.java  
+#         run: javac -cp ":tests/junit-4.10.jar" src/*.java tests/*.java  
