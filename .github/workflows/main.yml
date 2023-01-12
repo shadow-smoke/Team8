@@ -30,7 +30,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test PacMan Valid Moves
         working-directory: Projects/P1
-        run: java -cp "tests/junit-4.10.jar:." org.junit.runner.JUnitCore TestPacManValidMoves
+        run: java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManValidMoves
 
   TestGhostValidMoves:
     runs-on: ubuntu-latest
