@@ -4,9 +4,11 @@ import junit.framework.*;
 public class TestMapAttack extends TestCase {
 
   public void testMapAttack() throws FileNotFoundException {
-    Map mp = new Map(20);
-    assertFalse(mp.isGameOver());
-    mp.attack("blinky");
-    assertTrue(mp.isGameOver());
+    NoFrame frame = new NoFrame();
+    Map map = frame.getMap();
+    PacMan pac = frame.addPacMan(new Location(1,1));
+    assertFalse(map.isGameOver());
+    map.attack("blinky");
+    assertTrue(map.isGameOver());
   }
 }
