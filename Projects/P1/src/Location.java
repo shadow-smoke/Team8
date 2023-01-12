@@ -29,4 +29,9 @@ class Location {
     result = 31 * result + y;
     return result;
   }
+
+  @Override
+  public String toString() {
+    return " (" + x + "," + y + ") ";
+  }
 }

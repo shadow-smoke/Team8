@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import javax.swing.JComponent;
 
@@ -8,10 +9,14 @@ public class PacMan {
   Map myMap;
   Location shift;
 
+  private List<Location> history;
+
   public PacMan(String name, Location loc, Map map) {
     this.myLoc = loc;
     this.myName = name;
     this.myMap = map;
+    this.history = new ArrayList<>();
+    history.add(loc);
   }
 
   public ArrayList<Location> get_valid_moves() {
@@ -57,8 +62,21 @@ public class PacMan {
 
     if (numMoves > 0) {
       int rd_loc_index = rn.nextInt(numMoves);
-      myLoc = locations.get(rd_loc_index);
-      myMap.move(myName, myLoc, Map.Type.GHOST);
+      Location newLoc = locations.get(rd_loc_index);
+
+      if (history.contains(newLoc)){
+        rd_loc_index = rn.nextInt(numMoves);
+        myLoc =  locations.get(rd_loc_index);
+        history.add(myLoc);
+      } else {
+        myLoc = newLoc;
+        history.add(myLoc);
+      }
+      myMap.move(myName, myLoc, Map.Type.PACMAN);
+
+      if (history.size() >= 10){
+        history.clear();
+      }
       return true;
     }
     return false;

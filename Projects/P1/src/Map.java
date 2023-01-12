@@ -92,8 +92,11 @@ public class Map {
   /**
    * // When a ghost attacks, ghost.attack() calls Map.attack()
    */
-  public boolean attack(String Name) {
+  public boolean attack(String name) {
     // if pacman is attacked, the game is over
+    components.remove("pacman");
+    Location pacLoc = locations.remove("pacman");
+    field.get(pacLoc).remove(Map.Type.PACMAN);
     gameOver = true;
     return gameOver;
   }
