@@ -117,29 +117,15 @@ sabotage-Francesca
     if (getLoc(cookieLoc).contains(Map.Type.COOKIE)) {
 
        cookies--;
-    //   //JComponent cookieEaten = components.get(name);
+       field.remove(cookieLoc);
         String id = "tok_x" + cookieLoc.y + "_y" + cookieLoc.x;
      
        return null;
      }
      return components.get(name);
     }
-
-  
-      cookies++;
-      // //JComponent cookieEaten = components.get(name);
-      String id = "tok_x" + cookieLoc.x + "_y" + cookieLoc.y;
-      // components.remove(id);
-      locations.remove(id);
-      field.get(cookieLoc).remove(Map.Type.COOKIE);
-      return components.remove(id);
-    }
-    return null;
   }
 
 
-  public Location find(String name) {
-    return locations.get(name);
-  }
 
-}
+
