@@ -35,24 +35,10 @@ public class PacMan {
 
     for (Location location : allLocs) {
 
-      if (myMap.getLoc(location).contains(Map.Type.EMPTY) || myMap.getLoc(location).contains(Map.Type.COOKIE)) {
-        output.add(location);
-      }
-      // if (myMap.getLoc(location) != null &&
-      // myMap.getLoc(location).contains(Map.Type.EMPTY)) {
-      // output.add(location);
-      // }
-      // if any of surrounding points are a wall remove from ArrayList we are
-      // returning
-      // if (myMap.getLoc(location) != null &&
-      // myMap.getLoc(location).contains(Map.Type.EMPTY)) {
-      // // System.out.println(allLocs.toString());
-      // output.add(location);
-      // }
-    }
+      output.add(location);
 
+    }
     return output;
-    // return allLocs;
   }
 
   public boolean move() {
@@ -64,9 +50,9 @@ public class PacMan {
       int rd_loc_index = rn.nextInt(numMoves);
       Location newLoc = locations.get(rd_loc_index);
 
-      if (history.contains(newLoc)){
+      if (history.contains(newLoc)) {
         rd_loc_index = rn.nextInt(numMoves);
-        myLoc =  locations.get(rd_loc_index);
+        myLoc = locations.get(rd_loc_index);
         history.add(myLoc);
       } else {
         myLoc = newLoc;
@@ -74,7 +60,7 @@ public class PacMan {
       }
       myMap.move(myName, myLoc, Map.Type.PACMAN);
 
-      if (history.size() >= 8){
+      if (history.size() >= 8) {
         history.clear();
       }
       return true;
