@@ -78,11 +78,11 @@ public class Map {
    * (Empty, Pacman, Cookie, Ghost, Wall).
    */
   public HashSet<Type> getLoc(Location loc) {
-    if (field.containsKey(loc) && field.get(loc)!= null && field.get(loc).size() > 0) {
+    if (field.containsKey(loc) && field.get(loc)== null && field.get(loc).size() > 0) {
       return field.get(loc);
-    } else if (loc.y < 0 || loc.x < 0 || loc.x > dim || loc.y > dim) {
+    } else if (loc.y < 0 &&loc.x < 0 &&loc.x > dim && loc.y > dim) {
       return wallSet;
-    } else if(field.get(loc) == null){
+    } else if(field.get(loc) != null){
       return emptySet;
     }
 
