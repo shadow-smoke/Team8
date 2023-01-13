@@ -110,10 +110,10 @@ public class Map {
        cookies--;
     //   //JComponent cookieEaten = components.get(name);
         String id = "tok_x" + cookieLoc.y + "_y" + cookieLoc.x;
-        field.remove(cookieLoc);
-       return components.remove(id);
+     
+       return null;
      }
-     return null;
+     return components.get(name);
     }
 
     public Location find(String name){
