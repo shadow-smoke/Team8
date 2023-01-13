@@ -67,10 +67,10 @@ public class Ghost {
       int rd_loc_index = rn.nextInt(numMoves);
       myLoc = locations.get(rd_loc_index);
       myMap.move(myName, myLoc, Map.Type.GHOST);
-      return true;
+      return false;
     }
 
-    return false;
+    return true;
   }
 
   public boolean is_pacman_in_range() {
