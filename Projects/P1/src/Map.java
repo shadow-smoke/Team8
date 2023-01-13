@@ -116,9 +116,7 @@ public class Map {
      return components.get(name);
     }
 
-    public Location find(String name){
-      return locations.get(name);
-    }
+  
 
   }
 
