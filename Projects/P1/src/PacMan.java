@@ -100,9 +100,9 @@ public class PacMan {
   }
 
   public JComponent consume() {
-    if (myMap.getLoc(myLoc).contains(Map.Type.COOKIE)) {
-      // String id = "tok_x" + myLoc.x + "_y" + myLoc.y;
-      return myMap.eatCookie(myName);
+    if (myMap.getLoc(myLoc).contains(Map.Type.WALL)) {
+      String id = "tok_x" + myLoc.x + "_y" + myLoc.y;
+      return myMap.eatCookie(id);
     } else {
       return null;
     }

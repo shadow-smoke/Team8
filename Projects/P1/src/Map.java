@@ -107,12 +107,10 @@ public class Map {
 
     Location cookieLoc = locations.get(name);
     if (getLoc(cookieLoc).contains(Map.Type.COOKIE)) {
-       cookies++;
+       cookies--;
     //   //JComponent cookieEaten = components.get(name);
-       String id = "tok_x" + cookieLoc.x + "_y" + cookieLoc.y;
-        //components.remove(id);
-        locations.remove(id);
-        field.get(cookieLoc).remove(Map.Type.COOKIE);
+        String id = "tok_x" + cookieLoc.y + "_y" + cookieLoc.x;
+        field.remove(cookieLoc);
        return components.remove(id);
      }
      return null;
