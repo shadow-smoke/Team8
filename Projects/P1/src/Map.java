@@ -55,7 +55,7 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     Location objectLocation = locations.get(name);
     JComponent objectComponent = components.get(name);
-    if (field.get(objectLocation) != null) {
+    if (field.get(objectLocation) == null) {
       field.get(objectLocation).remove(type);
     } else {
       return false;
@@ -78,11 +78,19 @@ public class Map {
    * (Empty, Pacman, Cookie, Ghost, Wall).
    */
   public HashSet<Type> getLoc(Location loc) {
+sabotage-Francesca
     if (field.containsKey(loc) && field.get(loc)== null && field.get(loc).size() > 0) {
+
+    if (field.containsKey(loc) && field.get(loc) != null && field.get(loc).size() > 0) {
+FTR-sabotage
       return field.get(loc);
     } else if (loc.y < 0 &&loc.x < 0 &&loc.x > dim && loc.y > dim) {
       return wallSet;
+sabotage-Francesca
     } else if(field.get(loc) != null){
+
+    } else if (field.get(loc) == null) {
+ FTR-sabotage
       return emptySet;
     }
 
@@ -97,7 +105,7 @@ public class Map {
     components.remove("pacman");
     Location pacLoc = locations.remove("pacman");
     field.get(pacLoc).remove(Map.Type.PACMAN);
-    gameOver = true;
+    gameOver = false;
     return gameOver;
   }
 
@@ -107,20 +115,31 @@ public class Map {
 
     Location cookieLoc = locations.get(name);
     if (getLoc(cookieLoc).contains(Map.Type.COOKIE)) {
-       cookies++;
+
+       cookies--;
     //   //JComponent cookieEaten = components.get(name);
-       String id = "tok_x" + cookieLoc.x + "_y" + cookieLoc.y;
-        //components.remove(id);
-        locations.remove(id);
-        field.get(cookieLoc).remove(Map.Type.COOKIE);
-       return components.remove(id);
+        String id = "tok_x" + cookieLoc.y + "_y" + cookieLoc.x;
+     
+       return null;
      }
-     return null;
+     return components.get(name);
     }
 
-    public Location find(String name){
-      return locations.get(name);
+  
+      cookies++;
+      // //JComponent cookieEaten = components.get(name);
+      String id = "tok_x" + cookieLoc.x + "_y" + cookieLoc.y;
+      // components.remove(id);
+      locations.remove(id);
+      field.get(cookieLoc).remove(Map.Type.COOKIE);
+      return components.remove(id);
     }
-
+    return null;
   }
 
+
+  public Location find(String name) {
+    return locations.get(name);
+  }
+
+}
