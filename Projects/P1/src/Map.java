@@ -55,7 +55,7 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     Location objectLocation = locations.get(name);
     JComponent objectComponent = components.get(name);
-    if (field.get(objectLocation) != null) {
+    if (field.get(objectLocation) == null) {
       field.get(objectLocation).remove(type);
     } else {
       return false;
@@ -97,7 +97,7 @@ public class Map {
     components.remove("pacman");
     Location pacLoc = locations.remove("pacman");
     field.get(pacLoc).remove(Map.Type.PACMAN);
-    gameOver = true;
+    gameOver = false;
     return gameOver;
   }
 
@@ -107,19 +107,16 @@ public class Map {
 
     Location cookieLoc = locations.get(name);
     if (getLoc(cookieLoc).contains(Map.Type.COOKIE)) {
-       cookies++;
-    //   //JComponent cookieEaten = components.get(name);
-       String id = "tok_x" + cookieLoc.x + "_y" + cookieLoc.y;
-        //components.remove(id);
-        locations.remove(id);
-        field.get(cookieLoc).remove(Map.Type.COOKIE);
-       return components.remove(id);
+
+       cookies--;
+       field.remove(cookieLoc);
+        String id = "tok_x" + cookieLoc.y + "_y" + cookieLoc.x;
+     
+       return null;
      }
-     return null;
+     return components.get(name);
     }
-
-    public Location find(String name){
-      return locations.get(name);
-    }
-
   }
+
+
+
