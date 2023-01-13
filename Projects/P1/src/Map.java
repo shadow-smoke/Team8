@@ -117,6 +117,3 @@ public class Map {
      return components.get(name);
     }
   }
-
-
-
