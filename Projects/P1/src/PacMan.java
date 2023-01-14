@@ -34,9 +34,9 @@ public class PacMan {
     }
 
     for (Location location : allLocs) {
-
-      output.add(location);
-
+	if (!myMap.getLoc(location).contains(Map.Type.WALL)) {
+	    output.add(location);
+	}
     }
     return output;
   }
