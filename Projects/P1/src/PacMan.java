@@ -34,10 +34,11 @@ public class PacMan {
     }
 
     for (Location location : allLocs) {
-
-      output.add(location);
-
+      if (myMap.getLoc(location).contains(Map.Type.EMPTY) || myMap.getLoc(location).contains(Map.Type.COOKIE)) {
+        output.add(location);
+      }
     }
+
     return output;
   }
 
