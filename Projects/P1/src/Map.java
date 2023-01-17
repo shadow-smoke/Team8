@@ -96,8 +96,9 @@ public class Map {
     // if pacman is attacked, the game is over
     components.remove("pacman");
     Location pacLoc = locations.remove("pacman");
-    field.get(pacLoc).remove(Map.Type.PACMAN);
     gameOver = false;
+    if (field.get(pacLoc).remove(Map.Type.PACMAN))
+      gameOver = true;
     return gameOver;
   }
 
