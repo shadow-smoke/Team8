@@ -113,9 +113,9 @@ public class Map {
        field.remove(cookieLoc);
         String id = "tok_x" + cookieLoc.y + "_y" + cookieLoc.x;
      
-       return null;
+       return components.get(name);
      }
-     return components.get(name);
+     return null;
     }
 
   public Location find(String name){
