@@ -42,26 +42,19 @@ public class PacMan {
   }
 
   public boolean move() {
+    // Stores the array of valid moves
     ArrayList<Location> locations = get_valid_moves();
     int numMoves = locations.size();
+    // Used to move in a random valid direction
     Random rn = new Random();
 
+    // Check if there are any valid moves to make
     if (numMoves > 0) {
+      // Get a random number given the number of valid moves
       int rd_loc_index = rn.nextInt(numMoves);
-      Location newLoc = locations.get(rd_loc_index);
-
-      if (history.contains(newLoc)) {
-        rd_loc_index = rn.nextInt(numMoves);
-        myLoc = locations.get(rd_loc_index);
-        history.add(myLoc);
-      } else {
-        myLoc = newLoc;
-        history.add(myLoc);
-      }
-
-      if (history.size() >= 8) {
-        history.clear();
-      }
+      // Move to that location
+      myLoc = locations.get(rd_loc_index);
+      myMap.move(myName, myLoc, Map.Type.GHOST);
       return true;
     }
     return false;
