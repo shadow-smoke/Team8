@@ -44,6 +44,8 @@ public class Ghost {
 
     if (numMoves > 0) {
       int rd_loc_index = rn.nextInt(numMoves);
+      // Assign the new valid location using the random value
+      myLoc = locations.get(rd_loc_index);
       myMap.move(myName, myLoc, Map.Type.GHOST);
       return true;
     }
