@@ -53,14 +53,15 @@ public class Map {
   }
 
   public boolean move(String name, Location loc, Type type) {
+    // Stores the location and type of object specified in the parameters
     Location objectLocation = locations.get(name);
     JComponent objectComponent = components.get(name);
-    if (field.get(objectLocation) == null) {
-      field.get(objectLocation).remove(type);
-    } else {
-      return false;
-    }
 
+    // Removes the object "type" from the HashMap corresponding to the object's location
+    field.get(objectLocation).remove(type);
+
+    // If there is no object in the designated location, then it can be assumed that the desired object was
+    // in the prefaced location.
     if (!field.containsKey(loc)) {
       field.put(loc, new HashSet<Type>());
     }
@@ -78,11 +79,11 @@ public class Map {
    * (Empty, Pacman, Cookie, Ghost, Wall).
    */
   public HashSet<Type> getLoc(Location loc) {
-    if (field.containsKey(loc) && field.get(loc) == null && field.get(loc).size() > 0) {
+    if (field.containsKey(loc) && field.get(loc) != null && field.get(loc).size() > 0) {
       return field.get(loc);
-    } else if (loc.y < 0 && loc.x < 0 && loc.x > dim && loc.y > dim) {
+    } else if (loc.y < 0 || loc.x < 0 || loc.x > dim || loc.y > dim) {
       return wallSet;
-    } else if(field.get(loc) == null){
+    } else if(field.get(loc) != null){
       return emptySet;
     }
 
@@ -96,8 +97,9 @@ public class Map {
     // if pacman is attacked, the game is over
     components.remove("pacman");
     Location pacLoc = locations.remove("pacman");
-    field.get(pacLoc).remove(Map.Type.PACMAN);
     gameOver = false;
+    if (field.get(pacLoc).remove(Map.Type.PACMAN))
+      gameOver = true;
     return gameOver;
   }
 
@@ -112,9 +114,9 @@ public class Map {
        field.remove(cookieLoc);
         String id = "tok_x" + cookieLoc.y + "_y" + cookieLoc.x;
      
-       return null;
+       return components.get(name);
      }
-     return components.get(name);
+     return null;
     }
 
   public Location find(String name){
