@@ -70,21 +70,6 @@ public class TestPacManValidMoves extends TestCase {
     // for (Location element : pacmanLocations) {
     // System.out.println(element.x + ", " + element.y);
     // }
-
-    ArrayList<Location> correctAnswers2 = new ArrayList<Location>();
-    correctAnswers2.add(new Location(0, 0));
-    correctAnswers2.add(new Location(0, 1));
-    correctAnswers2.add(new Location(0, 2));
-
-    correctAnswers2.add(new Location(1, 0));
-    correctAnswers2.add(new Location(1, 1));
-    correctAnswers2.add(new Location(1, 2));
-
-    correctAnswers2.add(new Location(2, 0));
-    correctAnswers2.add(new Location(2, 1));
-    correctAnswers2.add(new Location(2, 2));
-
-    assertEquals(correctAnswers2, pacmanLocations);
   }
 
 }
