@@ -97,7 +97,7 @@ public class Map {
     components.remove("pacman");
     Location pacLoc = locations.remove("pacman");
     field.get(pacLoc).remove(Map.Type.PACMAN);
-    gameOver = false;
+    gameOver = true;
     return gameOver;
   }
 
