@@ -53,6 +53,7 @@ public class Map {
   }
 
   public boolean move(String name, Location loc, Type type) {
+    // Stores the location and type of object specified in the parameters
     Location objectLocation = locations.get(name);
     JComponent objectComponent = components.get(name);
     if (field.get(objectLocation) != null) {
@@ -61,6 +62,11 @@ public class Map {
       return false;
     }
 
+    // Removes the object "type" from the HashMap corresponding to the object's location
+    field.get(objectLocation).remove(type);
+
+    // If there is no object in the designated location, then it can be assumed that the desired object was
+    // in the prefaced location.
     if (!field.containsKey(loc)) {
       field.put(loc, new HashSet<Type>());
     }
@@ -82,7 +88,7 @@ public class Map {
       return field.get(loc);
     } else if (loc.y < 0 || loc.x < 0 || loc.x > dim || loc.y > dim) {
       return wallSet;
-    } else if(field.get(loc) == null){
+    } else if(field.get(loc) != null){
       return emptySet;
     }
     

@@ -43,11 +43,15 @@ public class PacMan {
   }
 
   public boolean move() {
+    // Stores the array of valid moves
     ArrayList<Location> locations = get_valid_moves();
     int numMoves = locations.size();
+    // Used to move in a random valid direction
     Random rn = new Random();
 
+    // Check if there are any valid moves to make
     if (numMoves > 0) {
+      // Get a random number given the number of valid moves
       int rd_loc_index = rn.nextInt(numMoves);
       Location newLoc = locations.get(rd_loc_index);
 
